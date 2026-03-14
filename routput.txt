@@ -1,0 +1,35 @@
+Student ID: 123123123
+Semester:   1
+count:   5
+  Unit: Data Structures and Abstractions
+  Section: ICT283
+  Credits: 3
+  Marks  : 81
+  Date: 1 January 26
+
+  Unit: Operating System
+  Section: ICT374
+  Credits: 4
+  Marks  : 82
+  Date: 30 January 26
+
+  Unit: Project Management
+  Section: ICT285
+  Credits: 3
+  Marks  : 83
+  Date: 28 February 26
+
+  Unit: Intro to Java Programming
+  Section: ICT167
+  Credits: 3
+  Marks  : 84
+  Date: 30 April 26
+
+  Unit: Cyber Security
+  Section: ICT5000
+  Credits: 4
+  Marks  : 85
+  Date: 1 October 26
+
+Number of unit = 5
+Total credits     = 17
