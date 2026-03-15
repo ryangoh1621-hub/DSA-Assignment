@@ -70,7 +70,10 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
-		<Unit filename="Time.cpp" />
+		<Unit filename="Time.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="Time.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
@@ -96,7 +99,10 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
-		<Unit filename="WAST.cpp" />
+		<Unit filename="WAST.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="WAST.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
@@ -104,21 +110,40 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
-		<Unit filename="WeatherRecord.cpp" />
+		<Unit filename="WeatherRecord.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="WeatherRecord.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="WeatherRecordMVC.cpp" />
+		<Unit filename="WeatherRecordMVC.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="WeatherRecordTest.cpp">
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
-		<Unit filename="WindRecType.cpp" />
+		<Unit filename="WindRecType.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="WindRecType.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="additionalFunction.cpp" />
+		<Unit filename="additionalFunction.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="additionalFunction.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="bst.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="bstTest.cpp" />
+		<Unit filename="intBst.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="main.cpp">
