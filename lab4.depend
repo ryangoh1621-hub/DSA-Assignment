@@ -333,3 +333,42 @@
 1770203660 source:c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 10\practical\lab10\unit.cpp
 	"Unit.h"
 
+1774452169 source:c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 10\practical\lab10\additionalfunctiontest.cpp
+	<iostream>
+	"additionalFunction.h"
+
+1774452153 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 10\practical\lab10\additionalfunction.h
+	<iostream>
+	<string>
+	"WeatherRecord.h"
+	<cmath>
+	<vector>
+	<stdexcept>
+
+1772377234 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 10\practical\lab10\weatherrecord.h
+	"Vector.h"
+	"WindRecType.h"
+	<iostream>
+	<fstream>
+	<sstream>
+
+1772377214 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 10\practical\lab10\windrectype.h
+	"Date.h"
+	"Time.h"
+	"WAST.h"
+
+1773387343 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 10\practical\lab10\date.h
+	<iostream>
+	<string>
+
+1772378283 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 10\practical\lab10\time.h
+	<string>
+	<iostream>
+
+1772378204 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 10\practical\lab10\wast.h
+	<string>
+	<iostream>
+
+1774452161 source:c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 10\practical\lab10\additionalfunction.cpp
+	"additionalFunction.h"
+

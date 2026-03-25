@@ -1,5 +1,5 @@
 #include "additionalFunction.h"
-
+/*
 float averageWindSpeed(const WeatherRecord& rec)
 {
     float avg = 0;
@@ -82,3 +82,63 @@ float TotalSolarRadiation(const WeatherRecord& rec)
     return sum;
 }
 
+
+*/
+
+
+double sPCC(const vector<double>& x, const vector<double>& y)
+{
+    if(x.size() == y.size())
+    {
+        double yMean = 0; //
+        double xMean = 0;
+        double numerator= 0;
+        double Xdenom = 0;
+        double Ydenom = 0;
+
+        //getting mean of vector x and vector y
+        for(int i = 0; i < x.size(); i++)
+        {
+            xMean = xMean + x[i];
+            yMean = yMean + y[i];
+
+        }
+        xMean = xMean / x.size();
+        yMean = yMean / y.size();
+
+        //compute deviation and sum
+        for(int i =0; i < x.size(); i++)
+        {
+            double dx = x[i] - xMean;
+            double dy = y[i] - yMean;
+            numerator += dx * dy;
+            Xdenom += dx * dx;
+            Ydenom += dy * dy;
+        }
+
+        return numerator / (sqrt(Xdenom) * sqrt(Ydenom));
+    }
+    else
+    {
+        throw invalid_argument("Error, both vector must be in equal length");
+    }
+}
+
+double MAD(const vector<double>& data)
+{
+    double sumAd = 0;
+    double mean = 0;
+
+    for (int i = 0; i < data.size(); i++) //calculate mean
+    {
+        mean = mean + data[i];
+    }
+    mean = mean / data.size();
+
+
+for (int i = 0; i < data.size(); i++) {
+    sumAd = sumAd + fabs(data[i] - mean);
+}
+
+    return sumAd / data.size();
+}

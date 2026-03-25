@@ -87,7 +87,10 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
-		<Unit filename="Unit.cpp" />
+		<Unit filename="Unit.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="Unit.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
@@ -98,7 +101,10 @@
 		<Unit filename="Vector.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="VectorTest.cpp" />
+		<Unit filename="VectorTest.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="WAST.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -132,13 +138,11 @@
 		<Unit filename="WindRecType.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="additionalFunction.cpp">
-			<Option compile="0" />
-			<Option link="0" />
-		</Unit>
+		<Unit filename="additionalFunction.cpp" />
 		<Unit filename="additionalFunction.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="additionalFunctionTest.cpp" />
 		<Unit filename="bst.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
