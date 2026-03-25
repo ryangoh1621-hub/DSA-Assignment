@@ -53,6 +53,8 @@ public:
     bool Search(const DT& findVal) const;
     bool CheckEmpty()const;
     void DestroyTree();
+    void CopyFrom(const bst<DT>& other);
+
 
 private:
 
@@ -66,7 +68,7 @@ private:
     void InOrder(Node<DT> * node) const;
     void PreOrder(Node<DT> * node) const;
     void PostOrder(Node<DT> * node) const;
-    void CopyTree(Node<DT>* &copiedTreeRoot, Node<DT>* &otherTreeRoot);
+    void CopyTree(Node<DT>* &copiedTreeRoot, Node<DT>* otherTreeRoot);
     void Destroy(Node<DT>* &node);
 
 };
@@ -112,14 +114,14 @@ template <class DT>
 bool bst<DT>::InsertRecord(Node<DT>* &node, const DT& data)
 {
     if(node == nullptr)
-        {
-            node = new Node<DT>; //initilise
-            node->info = data; // insert data
-            node->left = nullptr; // initilise child
-            node->right = nullptr; // initilise child
-        }
+    {
+        node = new Node<DT>; //initilise
+        node->info = data; // insert data
+        node->left = nullptr; // initilise child
+        node->right = nullptr; // initilise child
+    }
 
-    if(node->info == data) //check for duplicate
+    if(node->info == data) //check duplicate
     {
         return false;
     }
@@ -177,6 +179,11 @@ void bst<DT>::DestroyTree()
     Destroy(m_root); //helper to call private function
 }
 
+template <class DT>
+void bst<DT>::CopyFrom(const bst<DT>& other)
+{
+    CopyTree(m_root, other.m_root);
+}
 
 //-----------Private functions and Methods-------
 template <class DT>
@@ -217,7 +224,7 @@ void bst<DT>::PostOrder(Node<DT> *node) const
 }
 
 template <class DT>
-void bst<DT>::CopyTree(Node<DT>* &copiedTreeRoot, Node<DT>* &otherTreeRoot)
+void bst<DT>::CopyTree(Node<DT>* &copiedTreeRoot, Node<DT>* otherTreeRoot)
 {
     if(otherTreeRoot == nullptr)
     {

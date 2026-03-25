@@ -14,9 +14,11 @@ int main()
     bstree.Insert(Date(1,2,2020));
     bstree.Insert(Date(1,6,2020));
     cout << "In order: " << endl;
-    //bstree.InOrderTraversal();
-    //bstree.PostOrderTraversal();
+
     bstree.InOrderTraversal();
+    bstree.PostOrderTraversal();
+    bstree.PreOrderTraversal();
+    bstree.DestroyTree();
     cout << endl;
     cout << "Key in anything to continue..";
     string line;
@@ -37,18 +39,24 @@ int main()
     getline(cin, line);
 
 
-    bst<int> numberTrree;
-    numberTrree.Insert(5);
-    numberTrree.Insert(1);
-    numberTrree.Insert(4);
-    numberTrree.Insert(3);
-    numberTrree.Insert(8);
-    numberTrree.PostOrderTraversal();
-     cout << endl;
+    bst<int> originalTree;
+    bst<int> copyingTree;
+    originalTree.Insert(5);
+    originalTree.Insert(1);
+    originalTree.Insert(4);
+    originalTree.Insert(4);
+    originalTree.Insert(3);
+    originalTree.Insert(8);
+    copyingTree.CopyFrom(originalTree);
+    cout << "Original: " << endl;
+    originalTree.InOrderTraversal();
+    cout << endl;
+    cout << "Copy: " << endl;
+    copyingTree.InOrderTraversal();
+    cout << endl;
 
     cout << "Key in anything to continue..";
-    getline(cin, line);
 
-    cout << numberTrree.Search(1) << endl;
+    cout << originalTree.Search(1) << endl;
     return 0;
 }

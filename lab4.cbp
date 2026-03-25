@@ -32,7 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="DataSource.cpp" />
+		<Unit filename="DataSource.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="DataSource.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
@@ -40,7 +43,10 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
-		<Unit filename="Date.cpp" />
+		<Unit filename="Date.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="Date.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
@@ -81,10 +87,7 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
-		<Unit filename="Unit.cpp">
-			<Option compile="0" />
-			<Option link="0" />
-		</Unit>
+		<Unit filename="Unit.cpp" />
 		<Unit filename="Unit.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
@@ -95,10 +98,7 @@
 		<Unit filename="Vector.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="VectorTest.cpp">
-			<Option compile="0" />
-			<Option link="0" />
-		</Unit>
+		<Unit filename="VectorTest.cpp" />
 		<Unit filename="WAST.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -142,9 +142,16 @@
 		<Unit filename="bst.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="bstTest.cpp" />
+		<Unit filename="bstTest.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="intBst.h">
 			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="intBstTest.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 		</Unit>
 		<Unit filename="main.cpp">
 			<Option compile="0" />

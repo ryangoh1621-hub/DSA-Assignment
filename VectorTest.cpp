@@ -7,16 +7,24 @@ using namespace std;
 
 int main()
 {
-    Vector<int> numbers;
-    numbers.Insert(0,0);
-    numbers.Insert(11,1);
-    numbers.Insert(2,2);
-    numbers.Insert(3,3);
-    numbers.Remove(1);
-    cout << "Size of numbers: " << numbers.Size() << endl;
-    for(int i = 0; i < 6 ; i++)
+
+
+    vector<int> numbers;
+    cout << "Size: " << numbers.size() << endl;
+
+    vector<int> numbers2(7);
+    cout << "size" << numbers2.size() << endl;
+
+    Vector<int> numbers3;
+    numbers3.Insert(0,0);
+    numbers3.Insert(11,1);
+    numbers3.Insert(2,2);
+    numbers3.Insert(3,3);
+    numbers3.Remove(1);
+    cout << "Size of numbers: " << numbers3.Size() << endl;
+    for(int i = 0; i < numbers3.Size() ; i++)
     {
-        cout << numbers[i] << endl;
+        cout << numbers3[i] << endl;
 
     }
 
@@ -56,15 +64,11 @@ int main()
     points.Insert(20,5);
 
     Vector<int> points2 = points;
-    cout << "Vector Copy: " << points2.Size() << endl;
-    cout << "Vector Copy: " << points2.GetCapacity() << endl;
-
     Unit unitVec("Data Structure Algo", "ICT283", 3);
     Unit unitVec2("asd", "asd", 1);
     Vector<Unit> myvec;
     myvec.Insert(unitVec,0);
     myvec.Insert(unitVec2,1);
-    cout << "Test " << endl;
     for(int i = 0; i < 12; i++)
     {
         cout << "Unit: " << myvec[i]<< endl;
