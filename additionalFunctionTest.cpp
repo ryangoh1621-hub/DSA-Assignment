@@ -6,6 +6,11 @@ int main() {
     vector<double> X = {10, 20, 30, 40, 50};
     vector<double> Y = {12, 24, 33, 45, 55};
 
+
+    cout << "sum: " << sum(X) << endl;
+    cout << "avg: " << average(X) << endl;
+    cout << "SD: " << SD(X) << endl;
+
     double r = sPCC(X, Y);
     cout << "Pearson Correlation Coefficient: " << r << endl;
 

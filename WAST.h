@@ -94,7 +94,6 @@ private:
 
 };
 
-
 /** @brief output and input stream operator
 *
 * @param ostream - process of streaming to prompt

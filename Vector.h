@@ -13,6 +13,7 @@ class Vector
 {
 public:
 
+
     Vector(){}; //no implementation required
     Vector(int n);
     ~Vector(){}; // no implementation required
@@ -24,6 +25,7 @@ public:
     bool Remove(int pos); // delete
     const T& operator[](int pos) const; // Read
     T& operator[] (const int& pos); // update
+
     int Size() const;
 
 

@@ -91,7 +91,7 @@ private:
     * @param datafilesize - to contain a integer of the data file size
     *
     */
-    int
+    //int
     string m_DataSourcePath;
     vector<string> m_DataSourcePathRecords;
     int m_datafilesize;

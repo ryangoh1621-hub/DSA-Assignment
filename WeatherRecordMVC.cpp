@@ -3,8 +3,10 @@
 #include "DataSource.h"
 int main()
 {
+
+    //read and check how many files to read
     DataSource mydata;
- ifstream infile1( "data/data_source.txt" );
+    ifstream infile1( "data/data_source.txt" );
 
     if( !infile1 )
     {
@@ -12,6 +14,7 @@ int main()
     }
     infile1 >> mydata;
 
+    //Creation of weatherRecords.
     WeatherRecord myRec;
     int choice;
     for(int i = 0; i < mydata.getDataSize(); i++)
@@ -23,54 +26,48 @@ int main()
         infile.clear();
     }
 
-        //cout << "Records: "<<mydata.getRecord(0) << endl;
-        //cout << "Records: "<<mydata.getRecord(1) << endl;
-        //ifstream infile("Metdata-Jan-Dec2016.csv");
-        //if( !infile )
-        //{
-        //    return -1;
-        //}
-        //infile >> myRec;
-    //ifstream infile( "MetData-31-3.csv" ); //infile is an object on runtime stack | open file
-    //ifstream infile("MetData_Mar01-2014-Mar01-2015-ALL.csv");
-
-
 
     //Menu option
     cout << "Record Found: "<<myRec.GetTotalRecords() << endl;
     cout << "1. Calculate of Average windspeed" << endl;
     cout << "2. Average ambient Air Temperature" << endl;
-    cout << "3. standard deviations for the windspeed" << endl;
-    cout << "4. standard deviations for the ambient Air Temprature" << endl;
+    cout << "3. sPCC Caluclation" << endl;
+    cout << "4. MAD Caluclation" << endl;
     cout << "5. Total solar radiation" << endl;
     cout << "6. Search by Month/Year" << endl;
-    cout << "7. Display All Records" << endl;
-    cin >> choice;
 
+    //cout << "7. Display All Records" << endl;
+    cin >> choice;
+   float ans = 1;
     //menu selection option
     if(choice == 1)
     {
-        float ans =  averageWindSpeed(myRec);
+        ans = myRec.averageWindSpeed();
         cout << ans << endl;
     }
     if(choice == 2)
     {
-        float ans =  averageAmbientAirTemp(myRec);
+        ans = myRec.averageAirTemp();
         cout << ans << endl;
     }
     if(choice == 3)
     {
-        float ans = SDWindSpeed(myRec);
-        cout << ans << endl;
+       cout << "Enter Month" << endl;
+       cin >> choice;
+       myRec.sPCCalculate(choice);
+
+       //cout << ans << endl;
     }
     if(choice == 4)
     {
-        float ans = SDambientAirTemp(myRec);
-        cout << ans << endl;
+       cout << "Enter Year" << endl;
+       cin >> choice;
+       myRec.MADCalculate(choice);
+
     }
     if(choice == 5)
     {
-        float ans = TotalSolarRadiation(myRec);
+       ans = myRec.TotalSR();
         cout << ans << endl;;
     }
 

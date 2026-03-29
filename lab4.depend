@@ -375,3 +375,76 @@
 1773473238 source:c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 10\practical\lab10\date.cpp
 	"Date.h"
 
+1774770731 source:c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\additionalfunctiontest.cpp
+	<iostream>
+	"additionalFunction.h"
+
+1774795841 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\additionalfunction.h
+	<iostream>
+	<string>
+	"WeatherRecord.h"
+	<cmath>
+	<vector>
+	<stdexcept>
+
+1774795491 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\weatherrecord.h
+	"Vector.h"
+	"WindRecType.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	"additionalFunction.h"
+
+1774768699 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\vector.h
+	<stdexcept>
+	<vector>
+
+1772377214 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\windrectype.h
+	"Date.h"
+	"Time.h"
+	"WAST.h"
+
+1773387343 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\date.h
+	<iostream>
+	<string>
+
+1772378283 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\time.h
+	<string>
+	<iostream>
+
+1774768587 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\wast.h
+	<string>
+	<iostream>
+
+1774795841 source:c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\additionalfunction.cpp
+	"additionalFunction.h"
+
+1773216540 source:c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\datasource.cpp
+	"DataSource.h"
+
+1774785410 c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\datasource.h
+	<string>
+	<iostream>
+	<fstream>
+	<vector>
+
+1773473238 source:c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\date.cpp
+	"Date.h"
+
+1772204379 source:c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\time.cpp
+	"Time.h"
+
+1772253468 source:c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\wast.cpp
+	"WAST.h"
+
+1774796625 source:c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\weatherrecord.cpp
+	"WeatherRecord.h"
+
+1772377214 source:c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\windrectype.cpp
+	"WindRecType.h"
+
+1774795386 source:c:\users\ryang\desktop\file hub\school documents\kaplan\5. semester 4 (c db ds)\2 ict283 a - data structure and abstration\1. topic\topic 11\practical-assessed\lab11\weatherrecordmvc.cpp
+	"WeatherRecord.h"
+	"additionalFunction.h"
+	"DataSource.h"
+

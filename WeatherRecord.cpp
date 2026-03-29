@@ -28,6 +28,104 @@ int WeatherRecord::GetTotalRecords() const //return Size() of vector
     return wind_data.Size();
 }
 
+
+double WeatherRecord::averageWindSpeed()
+{
+    Vector<double> avgWS;
+    for (int i = 0; i < GetTotalRecords(); ++i)
+    {
+        avgWS.Insert(GetWindRecord(i).getWAST().GetWindSpeed(), avgWS.Size());
+    }
+
+    return average(avgWS); // reuse your helper function
+}
+
+double WeatherRecord::averageAirTemp()
+{
+    Vector<double> avgAT;
+    for (int i = 0; i < GetTotalRecords(); ++i)
+    {
+        avgAT.Insert(GetWindRecord(i).getWAST().GetambientAir(), avgAT.Size());
+    }
+
+    return average(avgAT); // reuse your helper function
+}
+void WeatherRecord::sPCCalculate(int option)
+{
+
+    Vector<double> WS;
+    Vector<double> AT;
+    Vector<double> SR;
+
+    for (int i = 0; i < GetTotalRecords(); ++i)
+    {
+        if(GetWindRecord(i).getDate().GetMonth() == option)
+        {
+            WS.Insert(GetWindRecord(i).getWAST().GetWindSpeed(), WS.Size());
+            AT.Insert(GetWindRecord(i).getWAST().GetambientAir(), AT.Size());
+            SR.Insert(GetWindRecord(i).getWAST().GetsolarRadiation(), SR.Size());
+        }
+    }
+
+    double S_T = sPCC(WS,AT);
+    double S_R = sPCC(WS,SR);
+    double T_R = sPCC(AT,SR);
+
+
+    std::cout << "Sample Pearson Correlation Coefficient for Month : " << option <<std::endl;
+    std::cout << "S_T: " << S_T <<std::endl;
+    std::cout << "S_R: " << S_R <<std::endl;
+    std::cout << "T_R: " << T_R <<std::endl;
+
+}
+void WeatherRecord::MADCalculate(int year)
+{
+    std::cout << "Year: " << year <<std::endl;
+
+
+
+
+    for(int cycle = 0; cycle < 12; cycle++)
+    {
+    Vector<double> WS;
+    Vector<double> AT;
+    Vector<double> SR;
+
+        for (int i = 0; i < GetTotalRecords(); ++i)
+        {
+            if(GetWindRecord(i).getDate().GetMonth() == cycle && GetWindRecord(i).getDate().GetYear() == year)
+            {
+                WS.Insert(GetWindRecord(i).getWAST().GetWindSpeed(), WS.Size());
+                AT.Insert(GetWindRecord(i).getWAST().GetambientAir(), AT.Size());
+                SR.Insert(GetWindRecord(i).getWAST().GetsolarRadiation(), SR.Size());
+            }
+        }
+        if(WS.Size() != 0 || AT.Size() != 0 || SR.Size()!= 0)
+        {
+                std::cout << "Month: " << cycle << " | "<< roundUpDec(average(WS))<< "(" << roundUpDec(SD(WS)) << "," << roundUpDec(MAD(WS)) << ")"
+              << roundUpDec(average(AT))<< "(" << roundUpDec(SD(AT)) << "," << roundUpDec(MAD(AT)) << "), "
+              << roundUpDec(sum(SR)) << std::endl;
+        }
+        else{
+                //std::cout << "No data for the month of :" << cycle << endl;
+        }
+    }
+
+
+
+
+
+}
+
+double WeatherRecord::TotalSR()
+{
+    Vector<double> totalSR;
+    for (int i = 0; i < GetTotalRecords(); ++i)
+    {
+        totalSR.Insert(GetWindRecord(i).getWAST().GetsolarRadiation(), totalSR.Size());
+    }
+    return sum(totalSR);
+}
 ostream& operator<<(ostream& os, const WeatherRecord& rec) //Display all Record result
 {
     for (int i = 0; i < rec.GetTotalRecords(); ++i)
@@ -230,7 +328,10 @@ istream & operator >>( istream & input, WeatherRecord & rec ) //input file to Ve
         {
 
         }
-        else{rec.WindRecordInsert(dummyrec);} // Insert record into the vector}
+        else
+        {
+            rec.WindRecordInsert(dummyrec);
+        } // Insert record into the vector}
 
 
     }

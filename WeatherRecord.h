@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include "additionalFunction.h"
 
 using std::string;
 using std::ostream;
@@ -48,30 +49,28 @@ public:
     WeatherRecord(const WindlogType& windlogType);
     WeatherRecord(const WindRecType & windRecType);
 
-    /** @brief Methods which allow modification of Vector
-     *
-     */
+    /** @brief Methods which allow modification of Vector */
     void WindRecordInsert(const WindRecType& record);
     void WindRecordRemove(int pos);
 
-    /** @brief Retrieve windRecords
-     *
-     *
-     */
+
+    double averageWindSpeed();
+    double averageAirTemp();
+    void sPCCalculate(int option);
+    void MADCalculate(int year);
+    double TotalSR();
+
+    /** @brief Retrieve windRecords */
     WindRecType GetWindRecord(int pos) const;
 
     /** @brief Retrieve Record Count
      *
      * @return int of Vector Size
-     *
      */
     int GetTotalRecords() const;
 
 private:
-    /** @brief Initialise a Vector Type of wind_data
-    *
-    *
-    */
+    /** @brief Initialise a Vector Type of wind_data */
     WindlogType wind_data;
 };
 
