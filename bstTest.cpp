@@ -15,9 +15,9 @@ int main()
     bstree.Insert(Date(1,6,2020));
     cout << "In order: " << endl;
 
-    bstree.InOrderTraversal();
-    bstree.PostOrderTraversal();
-    bstree.PreOrderTraversal();
+    bstree.InOrderTraversal(bst<Date>::printInfo);
+    bstree.PostOrderTraversal(bst<Date>::printInfo);
+    bstree.PreOrderTraversal(bst<Date>::printInfo);
     bstree.DestroyTree();
     cout << endl;
     cout << "Key in anything to continue..";
@@ -32,7 +32,7 @@ int main()
     nameTree.Insert("B");
     nameTree.Insert("F");
     nameTree.Insert("D");
-    nameTree.InOrderTraversal();
+    nameTree.InOrderTraversal(bst<string>::printInfo);
     cout << endl;
 
     cout << "Key in anything to continue..";
@@ -49,10 +49,10 @@ int main()
     originalTree.Insert(8);
     copyingTree.CopyFrom(originalTree);
     cout << "Original: " << endl;
-    originalTree.InOrderTraversal();
+    originalTree.InOrderTraversal(bst<int>::printInfo);
     cout << endl;
     cout << "Copy: " << endl;
-    copyingTree.InOrderTraversal();
+    copyingTree.InOrderTraversal(bst<int>::printInfo);
     cout << endl;
 
     cout << "Key in anything to continue..";

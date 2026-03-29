@@ -33,6 +33,8 @@ template <class DT>
 class bst
 {
 
+    typedef void(*pointFunc)(const DT&);
+
     /** @brief Initialise a bst constructor and deconstructor
     */
 
@@ -42,9 +44,9 @@ public:
 
     /** @brief Initialise a helper / public method to run aa private method
     */
-    void InOrderTraversal() const;
-    void PreOrderTraversal() const;
-    void PostOrderTraversal() const;
+    void InOrderTraversal(pointFunc pointFdisplay) const;
+    void PreOrderTraversal(pointFunc pointFdisplay) const;
+    void PostOrderTraversal(pointFunc pointFdisplay) const;
 
     /** @brief Initialise methods to Insert, Search, Check and Destory
     */
@@ -55,6 +57,9 @@ public:
     void DestroyTree();
     void CopyFrom(const bst<DT>& other);
 
+    /** @brief Initialise FuncPtrMethod for traversal routine
+    */
+    static void printInfo(const DT& info);
 
 private:
 
@@ -65,9 +70,9 @@ private:
 
     /** @brief Initialise private methods for computation of node and root
     */
-    void InOrder(Node<DT> * node) const;
-    void PreOrder(Node<DT> * node) const;
-    void PostOrder(Node<DT> * node) const;
+    void InOrder(Node<DT> * node, pointFunc pointFdisplay) const;
+    void PreOrder(Node<DT> * node, pointFunc pointFdisplay) const;
+    void PostOrder(Node<DT> * node, pointFunc pointFdisplay) const;
     void CopyTree(Node<DT>* &copiedTreeRoot, Node<DT>* otherTreeRoot);
     void Destroy(Node<DT>* &node);
 
@@ -85,21 +90,21 @@ bst<DT>::~bst()
 }
 
 template <class DT>
-void bst<DT>::InOrderTraversal() const
+void bst<DT>::InOrderTraversal(pointFunc pointFdisplay) const
 {
-    InOrder(m_root); //helper to call private function
+    InOrder(m_root, pointFdisplay); //helper to call private function
 }
 
 template <class DT>
-void bst<DT>::PreOrderTraversal() const
+void bst<DT>::PreOrderTraversal(pointFunc pointFdisplay) const
 {
-    PreOrder(m_root); //helper to call private function
+    PreOrder(m_root, pointFdisplay); //helper to call private function
 }
 
 template <class DT>
-void bst<DT>::PostOrderTraversal() const
+void bst<DT>::PostOrderTraversal(pointFunc pointFdisplay) const
 {
-    PostOrder(m_root); //helper to call private function
+    PostOrder(m_root, pointFdisplay); //helper to call private function
 }
 
 template <class DT>
@@ -187,38 +192,38 @@ void bst<DT>::CopyFrom(const bst<DT>& other)
 
 //-----------Private functions and Methods-------
 template <class DT>
-void bst<DT>::InOrder(Node<DT> *node) const
+void bst<DT>::InOrder(Node<DT> *node, pointFunc pointFdisplay) const
 {
     if(node != nullptr) //check for null if not move on
     {
-        InOrder(node->left); //checking left leaf | Have = run again to see child (recursive) | No = proceed
-        cout << node->info << " "; //display node
-        InOrder(node->right); //check right leaf | Have = run again to see child (recursive) | No = proceed
+        InOrder(node->left, pointFdisplay); //checking left leaf | Have = run again to see child (recursive) | No = proceed
+        pointFdisplay(node->info);
+        InOrder(node->right, pointFdisplay); //check right leaf | Have = run again to see child (recursive) | No = proceed
     }
 
 }
 
 template <class DT>
-void bst<DT>::PreOrder(Node<DT> *node) const
+void bst<DT>::PreOrder(Node<DT> *node, pointFunc pointFdisplay) const
 {
     if(node != nullptr) //check for null
     {
-        cout << node->info << " "; //display node
-        PreOrder(node->left); //checking left leaf | Have = run again to see child (recursive)| No = proceed
-        PreOrder(node->right); //check right leaf | Have = run again to see child (recursive)| No = proceed
+        pointFdisplay(node->info);
+        PreOrder(node->left, pointFdisplay); //checking left leaf | Have = run again to see child (recursive)| No = proceed
+        PreOrder(node->right, pointFdisplay); //check right leaf | Have = run again to see child (recursive)| No = proceed
     }
 
 }
 
 template <class DT>
-void bst<DT>::PostOrder(Node<DT> *node) const
+void bst<DT>::PostOrder(Node<DT> *node, pointFunc pointFdisplay) const
 {
 
     if(node != nullptr)
     {
-        PostOrder(node->left); //checking left leaf | Have = run again to see child (recursive)| No = proceed
-        PostOrder(node->right); //check right leaf | Have = run again to see child (recursive)| No = proceed
-        cout << node->info << " "; //display node
+        PostOrder(node->left, pointFdisplay); //checking left leaf | Have = run again to see child (recursive)| No = proceed
+        PostOrder(node->right, pointFdisplay); //check right leaf | Have = run again to see child (recursive)| No = proceed
+        pointFdisplay(node->info);
     }
 
 }
@@ -249,6 +254,12 @@ void bst<DT>::Destroy(Node<DT>* &node)
         delete node; // delete node
         node = nullptr; // set node to null
     }
+}
+
+template <class DT>
+void bst<DT>::printInfo(const DT& info)
+{
+     cout << info << " ";
 }
 
 #endif // BST_H_INCLUDED
