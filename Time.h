@@ -78,6 +78,10 @@ public:
      */
     void SetHour(int hour);
 
+    bool operator<(const Time& other) const;
+    bool operator==(const Time& other) const;
+    bool operator>(const Time& other) const;
+
 private:
     /** @brief creation of time Attributes
     *

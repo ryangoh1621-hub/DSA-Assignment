@@ -34,6 +34,7 @@ private:
     vector<T> m_vec;
 };
 
+/*
 template <class T>
 Vector<T>::Vector(int n) //non-default constructor
 {
@@ -44,7 +45,7 @@ Vector<T>::Vector(int n) //non-default constructor
 
 }
 
-/*
+
 template <class T>
 Vector<T>& Vector<T>::operator=(const Vector<T>& other) //operator
 {

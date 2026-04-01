@@ -41,3 +41,55 @@ void WindRecType::setWAST(const WAST& wast)
 {
     my_wast = wast;
 }
+/*
+bool WindRecType::operator<(const WindRecType& other) const
+{
+    if (my_date < other.my_date) return true;
+    if (my_date > other.my_date) return false;
+
+    return my_time < other.my_time;
+}
+
+bool WindRecType::operator==(const WindRecType& other) const
+{
+    return (my_date == other.my_date &&
+            my_time == other.my_time);
+}*/
+
+    bool operator==(const WindRecType& lhs, const WindRecType& rhs)
+    {
+            return lhs.getDate() == rhs.getDate() &&
+           lhs.getTime() == rhs.getTime();
+    }
+    bool operator<(const WindRecType& lhs, const WindRecType& rhs)
+    {
+            if (lhs.getDate() == rhs.getDate()) {
+        return lhs.getTime() < rhs.getTime();
+    }
+    return lhs.getDate() < rhs.getDate();
+    }
+    bool operator>(const WindRecType& lhs, const WindRecType& rhs)
+    {
+            if (lhs.getDate() == rhs.getDate()) {
+        return lhs.getTime() > rhs.getTime();
+    }
+    return lhs.getDate() > rhs.getDate();
+    }
+
+
+ostream& operator<<(ostream& os, const WindRecType& rec)
+{
+    os << rec.getDate().GetDay() << " "
+       << rec.getDate().GetMonth() << " "
+       << rec.getDate().GetYear() << " "
+
+       << rec.getTime().GetHour() << ":"
+       << rec.getTime().GetMin() << ":"
+       << rec.getTime().GetSec() << " "
+
+       << rec.getWAST().GetWindSpeed() << " "
+       << rec.getWAST().GetambientAir() << " "
+       << rec.getWAST().GetsolarRadiation();
+
+    return os;
+}

@@ -19,7 +19,28 @@ int Time::GetHour()const{return m_hours;}
 void Time::SetSec(int sec){ m_seconds = sec;}
 void Time::SetMin(int minu){m_minutes = minu;}
 void Time::SetHour(int hour){m_hours = hour;}
+bool Time::operator<(const Time& other) const
+{
+    if (m_hours < other.m_hours) return true;
+    if (m_hours > other.m_hours) return false;
 
+    if (m_minutes < other.m_minutes) return true;
+    if (m_minutes > other.m_minutes) return false;
+
+    return m_seconds < other.m_seconds;
+}
+
+bool Time::operator==(const Time& other) const
+{
+    return (m_hours == other.m_hours &&
+            m_minutes == other.m_minutes &&
+            m_seconds == other.m_seconds);
+}
+
+bool Time::operator>(const Time& other) const
+{
+    return other < *this;
+}
 
 //input and output stream
 ostream & operator <<( ostream & os, const Time & time)

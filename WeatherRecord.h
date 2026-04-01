@@ -53,12 +53,13 @@ public:
     void WindRecordInsert(const WindRecType& record);
     void WindRecordRemove(int pos);
 
-
-    double averageWindSpeed();
-    double averageAirTemp();
+    /** @brief Methods which allow manipulation of data */
+    double averageWindSpeed(int month, int year);
+    double averageAirTemp(int month, int year);
     void sPCCalculate(int option);
     void MADCalculate(int year);
     double TotalSR();
+    double SampleStdev(int month, int year);
 
     /** @brief Retrieve windRecords */
     WindRecType GetWindRecord(int pos) const;

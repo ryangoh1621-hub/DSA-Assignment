@@ -259,7 +259,8 @@ void bst<DT>::Destroy(Node<DT>* &node)
 template <class DT>
 void bst<DT>::printInfo(const DT& info)
 {
-     cout << info << " ";
+     cout << info << endl;
 }
+
 
 #endif // BST_H_INCLUDED

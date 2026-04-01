@@ -2,10 +2,60 @@
 #include <string>
 #include "bst.h"
 #include "Date.h"
+#include "WindRecType.h"
+#include "bstWeatherRecord.h"
+#include "additionalFunction.h"
+#include "DataSource.h"
 
 using namespace std;
 int main()
 {
+
+
+    bst<WindRecType> wrttree;
+
+    wrttree.Insert(WindRecType(Date(10,10,1998),Time(30,10,05), WAST(1,1.2,3)));
+    wrttree.Insert(WindRecType(Date(12,10,1998),Time(30,10,05), WAST(1,1.2,3)));
+    wrttree.Insert(WindRecType(Date(10,9,1998),Time(30,10,05), WAST(1,1.2,3)));
+    wrttree.Insert(WindRecType(Date(5,10,1998),Time(30,10,05), WAST(1,1.2,3)));
+
+    wrttree.InOrderTraversal(bst<WindRecType>::printInfo);
+
+
+
+    DataSource mydata;
+
+    ifstream infile1( "data/data_source.txt" );
+
+    if( !infile1 )
+    {
+        return -1;
+    }
+    infile1 >> mydata;
+
+    //Creation of weatherRecords.
+    //WeatherRecord myRec;
+    bstWeatherRecord myRec;
+    int choice;
+    int inputMonth;
+    int inputYear;
+
+    for(int i = 0; i < mydata.getDataSize(); i++)
+    {
+        string path = "data/"+mydata.getRecord(i);
+        cout << path << endl;
+        ifstream infile(path);
+        infile >> myRec;
+        infile.clear();
+    }
+
+
+
+
+
+/*
+
+
     bst<Date> bstree;
     bstree.Insert(Date(1,1,2020));
     bstree.Insert(Date(1,3,2020));
@@ -58,5 +108,6 @@ int main()
     cout << "Key in anything to continue..";
 
     cout << originalTree.Search(1) << endl;
+    */
     return 0;
 }

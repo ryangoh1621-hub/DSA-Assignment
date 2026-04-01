@@ -1,178 +1,38 @@
-#include "WeatherRecord.h"
+#include "bstWeatherRecord.h"
 
-WeatherRecord::WeatherRecord()
-{
-    //Default consutrctor alr done by their class
+bstWeatherRecord::bstWeatherRecord() {
 }
 
-WeatherRecord::WeatherRecord(const WindlogType & windlogType) //non-Default consturctor with struct type
-    : wind_data(windlogType) {}
-
-void WeatherRecord::WindRecordInsert(const WindRecType& record) //Insert to Vector function
-{
-    wind_data.Insert(record, wind_data.Size());
+void bstWeatherRecord::WindRecordInsert(const WindRecType& record) {
+    wind_data.Insert(record);
 }
 
-void WeatherRecord::WindRecordRemove(int pos) //Delete function from Vector
-{
-    wind_data.Remove(pos);
+bool bstWeatherRecord::WindRecordSearch(const WindRecType& record) const {
+    return wind_data.Search(record);
 }
 
-WindRecType WeatherRecord::GetWindRecord(int pos) const //Get Vector Record
-{
-    return wind_data[pos];
-}
-
-int WeatherRecord::GetTotalRecords() const //return Size() of vector
-{
-    return wind_data.Size();
+void bstWeatherRecord::DisplayAll() const {
+    wind_data.InOrderTraversal([](const WindRecType& w) {
+        cout << "Date: " << w.getDate().GetDay() << "/"
+             << w.getDate().GetMonth() << "/"
+             << w.getDate().GetYear()
+             << " Time: " << w.getTime().GetHour() << ":"
+             << w.getTime().GetMin()
+             << " |windspeed: " << w.getWAST().GetWindSpeed()
+             << " |ambient air: " << w.getWAST().GetambientAir()
+             << " |solar radiation: " << w.getWAST().GetsolarRadiation()
+             << endl;
+    });
 }
 
 
-double WeatherRecord::averageWindSpeed(int month, int year)
+ostream& operator<<(ostream& os, const bstWeatherRecord& rec)
 {
-    Vector<double> avgWS;
-    for (int i = 0; i < GetTotalRecords(); ++i)
-    {
-        if(month == GetWindRecord(i).getDate().GetMonth() && year == GetWindRecord(i).getDate().GetYear())
-            {
-                avgWS.Insert(GetWindRecord(i).getWAST().GetWindSpeed(), avgWS.Size());
-            }
-    }
-
-            return roundUpDec(average(avgWS)); // reuse your helper function
-
-
-}
-
-
-
-double WeatherRecord::averageAirTemp(int month, int year)
-{
-    Vector<double> avgAT;
-    for (int i = 0; i < GetTotalRecords(); ++i)
-    {
-        if(month == GetWindRecord(i).getDate().GetMonth() && year == GetWindRecord(i).getDate().GetYear())
-            {
-        avgAT.Insert(GetWindRecord(i).getWAST().GetambientAir(), avgAT.Size());
-            }
-    }
-
-    return average(avgAT); // reuse your helper function
-}
-void WeatherRecord::sPCCalculate(int option)
-{
-
-    Vector<double> WS;
-    Vector<double> AT;
-    Vector<double> SR;
-
-    for (int i = 0; i < GetTotalRecords(); ++i)
-    {
-        if(GetWindRecord(i).getDate().GetMonth() == option)
-        {
-            WS.Insert(GetWindRecord(i).getWAST().GetWindSpeed(), WS.Size());
-            AT.Insert(GetWindRecord(i).getWAST().GetambientAir(), AT.Size());
-            SR.Insert(GetWindRecord(i).getWAST().GetsolarRadiation(), SR.Size());
-        }
-    }
-
-    double S_T = sPCC(WS,AT);
-    double S_R = sPCC(WS,SR);
-    double T_R = sPCC(AT,SR);
-
-
-    std::cout << "Sample Pearson Correlation Coefficient for Month : " << dateConversion(option) <<std::endl;
-    if(isnan(sPCC(WS,AT))){
-    std::cout << "S_T: No Data" <<std::endl;
-    std::cout << "S_R: No Data"  <<std::endl;
-    std::cout << "T_R: No Data" <<std::endl;
-    }
-    else
-        {
-    std::cout << "S_T: " << S_T <<std::endl;
-    std::cout << "S_R: " << S_R <<std::endl;
-    std::cout << "T_R: " << T_R <<std::endl;
-        }
-
-
-}
-void WeatherRecord::MADCalculate(int year)
-{
-    std::cout << "Year: " << year <<std::endl;
-
-
-
-
-    for(int cycle = 0; cycle < 12; cycle++)
-    {
-    Vector<double> WS;
-    Vector<double> AT;
-    Vector<double> SR;
-
-        for (int i = 0; i < GetTotalRecords(); ++i)
-        {
-            if(GetWindRecord(i).getDate().GetMonth() == cycle && GetWindRecord(i).getDate().GetYear() == year)
-            {
-                WS.Insert(GetWindRecord(i).getWAST().GetWindSpeed(), WS.Size());
-                AT.Insert(GetWindRecord(i).getWAST().GetambientAir(), AT.Size());
-                SR.Insert(GetWindRecord(i).getWAST().GetsolarRadiation(), SR.Size());
-            }
-        }
-        if(WS.Size() != 0 || AT.Size() != 0 || SR.Size()!= 0)
-        {
-                std::cout << "Month: " << cycle << " | "<< roundUpDec(average(WS))<< "(" << roundUpDec(SD(WS)) << "," << roundUpDec(MAD(WS)) << ")"
-              << roundUpDec(average(AT))<< "(" << roundUpDec(SD(AT)) << "," << roundUpDec(MAD(AT)) << "), "
-              << roundUpDec(sum(SR)) << std::endl;
-        }
-        else{
-                //std::cout << "No data for the month of :" << cycle << endl;
-        }
-    }
-}
-
-double WeatherRecord::TotalSR()
-{
-    Vector<double> totalSR;
-    for (int i = 0; i < GetTotalRecords(); ++i)
-    {
-        totalSR.Insert(GetWindRecord(i).getWAST().GetsolarRadiation(), totalSR.Size());
-    }
-    return sum(totalSR);
-}
-
-double WeatherRecord::SampleStdev(int month, int year)
-{
-    Vector<double> SSD;
-    for (int i = 0; i < GetTotalRecords(); ++i)
-    {
-        if(GetWindRecord(i).getDate().GetMonth() == month && GetWindRecord(i).getDate().GetYear() == year)
-            {
-            SSD.Insert(GetWindRecord(i).getWAST().GetWindSpeed(), SSD.Size());
-            }
-    }
-    return roundUpDec(SD(SSD));
-}
-
-
-
-ostream& operator<<(ostream& os, const WeatherRecord& rec) //Display all Record result
-{
-    for (int i = 0; i < rec.GetTotalRecords(); ++i)
-    {
-        const WindRecType& w = rec.GetWindRecord(i);
-        os << "Date: " << w.getDate().GetDay() << "/" << w.getDate().GetMonth() << "/" << w.getDate().GetYear()
-           << " " << "Time: " << w.getTime().GetHour() << ":" << w.getTime().GetMin() << ":" << w.getTime().GetSec() << " "
-           << "|windspeed: " << w.getWAST().GetWindSpeed()
-           << "|ambient air: " << w.getWAST().GetambientAir()
-           << "|solar radiation: " << w.getWAST().GetsolarRadiation() << endl;
-    }
     return os;
 }
-
-istream & operator >>( istream & input, WeatherRecord& rec ) //input file to Vector
+istream& operator>>(istream& input, bstWeatherRecord& rec)
 {
-    //Creation of different type of Delimiter
+       //Creation of different type of Delimiter
     const char DELIMITER = ',';
     const char DELIMITER2 = '/';
     const char DELIMITER3 = ':';
@@ -361,11 +221,9 @@ istream & operator >>( istream & input, WeatherRecord& rec ) //input file to Vec
         else
         {
             rec.WindRecordInsert(dummyrec);
-        } // Insert record into the vector}
+        }
 
 
     }
     return input;
 }
-
-

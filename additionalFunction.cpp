@@ -1,90 +1,4 @@
 #include "additionalFunction.h"
-/*
-float averageWindSpeed(const WeatherRecord& rec)
-{
-    float avg = 0;
-    float sum = 0;
-    for (int i = 0; i < rec.GetTotalRecords(); ++i)
-    {
-        sum = sum + rec.GetWindRecord(i).getWAST().GetWindSpeed();
-    }
-    avg = sum / rec.GetTotalRecords();
-    return avg;
-}
-
-float averageAmbientAirTemp(const WeatherRecord& rec)
-{
-    float avg = 0;
-    float sum = 0;
-    for (int i = 0; i < rec.GetTotalRecords(); ++i)
-    {
-        sum = sum + rec.GetWindRecord(i).getWAST().GetambientAir();
-
-    }
-    avg = sum / rec.GetTotalRecords();
-
-    return avg;
-}
-
-float SDWindSpeed(const WeatherRecord& rec)
-{
-    float avg = averageWindSpeed(rec); // call average of windspeed
-    float sumOfDeviation = 0;
-    float variance = 0;
-    float deviation = 0;
-    int totalcount = rec.GetTotalRecords();
-
-    for (int i = 0; i < totalcount; ++i)
-    {
-        // calculate deviation by per line value minus average
-         deviation = rec.GetWindRecord(i).getWAST().GetWindSpeed() - avg;
-
-        // get sum of deviation formula (deviation * deviation)
-    sumOfDeviation = sumOfDeviation + (deviation * deviation);
-    }
-
-    // calculating variance
-    variance = sumOfDeviation / totalcount;
-
-    return sqrt(variance); //using cmath formula to get sqareroot varience
-
-}
-
-float SDambientAirTemp(const WeatherRecord& rec)
-{
-    float avg = averageAmbientAirTemp(rec); // call average of windspeed
-    float sumOfDeviation = 0;
-    float variance = 0;
-        float deviation = 0;
-    int totalcount = rec.GetTotalRecords();
-
-    for (int i = 0; i < totalcount; ++i)
-    {
-        // calculate deviation by per line value minus average
-        deviation = rec.GetWindRecord(i).getWAST().GetambientAir() - avg;
-
-        // get sum of deviation formula (deviation * deviation)
-       sumOfDeviation = sumOfDeviation + (deviation * deviation);
-    }
-
-    // calculating variance
-    variance = sumOfDeviation / totalcount;
-
-    return sqrt(variance); //using cmath formula to get sqareroot varience
-}
-float TotalSolarRadiation(const WeatherRecord& rec)
-{
-    float sum = 0;
-    for (int i = 0; i < rec.GetTotalRecords(); ++i)
-    {
-        sum = sum + rec.GetWindRecord(i).getWAST().GetsolarRadiation();
-    }
-    return sum;
-}
-
-
-*/
-
 
 double sPCC(const Vector<double>& x, const Vector<double>& y)
 {
@@ -136,9 +50,10 @@ double MAD(const Vector<double>& data)
     mean = mean / data.Size();
 
 
-for (int i = 0; i < data.Size(); i++) {
-    sumAd = sumAd + fabs(data[i] - mean);
-}
+    for (int i = 0; i < data.Size(); i++)
+    {
+        sumAd = sumAd + fabs(data[i] - mean);
+    }
 
     return sumAd / data.Size();
 }
@@ -153,10 +68,10 @@ double sum(const Vector<double>& data)
 {
     double sum = 0;
     for(int i =0; i < data.Size(); i++)
-        {
-            sum = sum + data[i];
-        }
-        return sum;
+    {
+        sum = sum + data[i];
+    }
+    return sum;
 }
 
 double SD(const Vector<double>& data)
@@ -166,7 +81,8 @@ double SD(const Vector<double>& data)
     double currDiff = 0;
     double variance = 0;
 
-    for (int i = 0; i < data.Size(); i++) {
+    for (int i = 0; i < data.Size(); i++)
+    {
         currDiff = data[i] - mean;
         varianceSum = varianceSum + (currDiff * currDiff);
     }
@@ -178,5 +94,6 @@ double SD(const Vector<double>& data)
 
 double roundUpDec(double data)
 {
-    return round(data * 100) / 100;
+    return round(data * 10) / 10.0;
 }
+

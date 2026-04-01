@@ -1,0 +1,21 @@
+evaluation for assignment 2
+
+
+What works
+
+(Creation of classes)
+- Implementation of vector to a simplified version
+- Implementation of multiple read files that filter abnormal data or missing data
+- Implementation of additional function to be standalone (modify and expand through other classes) (maths are not coupled to weather data)
+- Implementation of basic BST and function pointers
+- Implementation of basic MAP
+- Implementation structure of menu option to be most up-to-date with proper functions
+
+(test plan and data dictionary)
+- Created and implemented test.cpp for all class.
+- 
+
+
+What doesn't work
+-  Implementation of data to either Map or BST
+-  load data to file of WindTempSolar

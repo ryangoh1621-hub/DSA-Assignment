@@ -104,11 +104,10 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
-		<Unit filename="WeatherRecord.cpp" />
-		<Unit filename="WeatherRecord.h">
-			<Option target="&lt;{~None~}&gt;" />
+		<Unit filename="WeatherRecordMVC.cpp">
+			<Option compile="0" />
+			<Option link="0" />
 		</Unit>
-		<Unit filename="WeatherRecordMVC.cpp" />
 		<Unit filename="WeatherRecordTest.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -128,9 +127,10 @@
 		<Unit filename="bst.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="bstTest.cpp">
-			<Option compile="0" />
-			<Option link="0" />
+		<Unit filename="bstTest.cpp" />
+		<Unit filename="bstWeatherRecord.cpp" />
+		<Unit filename="bstWeatherRecord.h">
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="main.cpp">
 			<Option compile="0" />

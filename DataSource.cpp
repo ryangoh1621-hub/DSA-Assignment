@@ -1,6 +1,5 @@
 #include "DataSource.h"
 
-
 DataSource::DataSource()
 {
     m_DataSourcePath = "";
